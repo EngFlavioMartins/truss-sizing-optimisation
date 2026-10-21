@@ -1,7 +1,11 @@
 """37-member isostatic truss of Fig. 6 in Martins, Avila & da Silva (2019)."""
+import sys
+from pathlib import Path
+
 import numpy as np
 
-from truss_sizing import Truss
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from truss_sizing import Truss  # noqa: E402
 
 
 def truss_37(span_panels=10, L=1.0, F=1000.0):

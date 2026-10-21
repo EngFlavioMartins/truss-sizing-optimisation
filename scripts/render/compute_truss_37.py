@@ -7,7 +7,6 @@ import json
 import sys
 from pathlib import Path
 
-import cmcrameri.cm as cmc
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,8 +30,6 @@ out.write_text(json.dumps({
     "nodes": t.nodes.tolist(), "members": t.members.tolist(),
     "designs": {k: {"areas": a.tolist(), "stress_ratio": (r / SIGMA_ADM).tolist()} for k, (a, r) in designs.items()},
     "supports": [int(n) for n in t.supports], "mass_kg": mass, "ratio_range": RATIO_RANGE,
-    # Crameri "vik" sampled for ParaView: (value, r, g, b) over the stress-ratio range
-    "vik_rgb_points": [v for q in np.linspace(0, 1, 65) for v in ((2 * q - 1) * RATIO_RANGE, *cmc.vik(q)[:3])],
 }, indent=1))
 for k, (a, r) in designs.items():
     print(f"{k}: mass {t.rho * (t.lengths * a).sum():.2f} kg, max |sigma|/sigma_adm = {np.abs(r).max() / SIGMA_ADM:.2f}")
