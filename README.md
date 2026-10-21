@@ -1,5 +1,9 @@
 # Truss sizing optimisation
 
+**Minimum-mass sizing of isostatic trusses as one linear programme.**
+
+![The 37-member benchmark truss at equal mass, with uniform member areas (top) and after linear sizing (bottom), coloured by axial stress over admissible stress](docs/assets/render.webp)
+
 Minimum-mass sizing of statically determinate (isostatic) planar trusses under external and self-weight loads, using the linear "indirect method" of
 
 > F. A. C. Martins, J. P. J. Avila and M. A. da Silva (2019). A linear approach for sizing optimization of isostatic trussed structures subjected to external and self-weight loads. *International Journal of Steel Structures* 19(4), 1146–1157. [doi:10.1007/s13296-018-0194-8](https://doi.org/10.1007/s13296-018-0194-8)
@@ -36,6 +40,12 @@ python scripts/render/add_colour_bar.py outputs/render/truss-sizing-raw.png outp
 ```
 
 The image compares two trusses of equal mass. In the uniform design (top), every member has the same area, and the most loaded members reach 2.22 σ<sub>adm</sub>. The sized design (bottom) keeps every member within the admissible stress. A uniform design needs 29.7 kg to meet the stress limit.
+
+## Citing
+
+This code re-implements F. A. C. Martins, J. P. J. Avila and M. A. da Silva (2019), A linear approach for sizing optimization of isostatic trussed structures subjected to external and self-weight loads, *International Journal of Steel Structures* 19(4), 1146–1157, [doi:10.1007/s13296-018-0194-8](https://doi.org/10.1007/s13296-018-0194-8).
+
+GitHub's *Cite this repository* button uses [CITATION.cff](CITATION.cff).
 
 ## Licence
 

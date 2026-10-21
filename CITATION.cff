@@ -5,6 +5,8 @@ title: "Truss sizing optimisation"
 authors:
   - family-names: Martins
     given-names: Flavio A. C.
+    orcid: https://orcid.org/0000-0002-1374-5760
+repository-code: "https://github.com/EngFlavioMartins/truss-sizing-optimisation"
 preferred-citation:
   type: article
   title: "A Linear Approach for Sizing Optimization of Isostatic Trussed Structures Subjected to External and Self-Weight Loads"
