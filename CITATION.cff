@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+license: MIT
+message: "If you use this code, please cite the paper below."
+title: "Truss sizing optimisation"
+authors:
+  - family-names: Martins
+    given-names: Flavio A. C.
+preferred-citation:
+  type: article
+  title: "A Linear Approach for Sizing Optimization of Isostatic Trussed Structures Subjected to External and Self-Weight Loads"
+  authors:
+    - family-names: Martins
+      given-names: Flavio A. C.
+    - family-names: Avila
+      given-names: J. P. J.
+    - family-names: da Silva
+      given-names: M. A.
+  journal: "International Journal of Steel Structures"
+  volume: 19
+  issue: 4
+  start: 1146
+  end: 1157
+  year: 2019
+  doi: "10.1007/s13296-018-0194-8"
