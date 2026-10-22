@@ -10,5 +10,6 @@ R=scripts/render
 O=outputs/render
 mkdir -p $O
 python $R/compute_truss_37.py
-$PV $R/render_truss.py $O/truss-raw.png
-python $R/compose_truss.py $O/truss-raw.png $O/truss-sizing
+$PV $R/render_truss.py $O/uniform-raw.png before
+$PV $R/render_truss.py $O/sized-raw.png after
+python $R/compose_truss.py $O/uniform-raw.png $O/sized-raw.png $O/truss-sizing

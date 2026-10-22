@@ -1,13 +1,13 @@
 """ParaView (pvpython) render of the 37-member truss before and after sizing, OpenONDA style.
 
-Usage: pvpython render_truss.py <output png> [width height]
+Usage: pvpython render_truss.py <output png> <design: before|after> [width height]
 Reads outputs/render/truss_37.json from compute_truss_37.py.
 
-Top: uniform member areas at the same mass as the sized truss. Bottom: the
-minimum-mass sizing. Tubes have radius proportional to sqrt(area), one scale
+"before": uniform member areas at the same mass as the sized truss; "after":
+the minimum-mass sizing. Both use the same camera and scales. Tubes have radius proportional to sqrt(area), one scale
 for both, and are coloured by axial stress / admissible stress with
 signed_dark (teal compression, red tension, brightest where over-stressed) on a common
-range. Joints and supports are matte grey on black.
+range. Joints and supports are brushed metal on black.
 """
 import json
 import math
@@ -23,10 +23,9 @@ from vtkmodules.vtkCommonDataModel import vtkCellArray, vtkPolyData  # noqa: E40
 
 ROOT = HERE.parents[1]
 data = json.loads((ROOT / "outputs" / "render" / "truss_37.json").read_text())
-out = Path(sys.argv[1])
-width, height = (int(a) for a in (sys.argv[2:4] if len(sys.argv) > 3 else (2400, 1500)))
+out, which = Path(sys.argv[1]), sys.argv[2]
+width, height = (int(a) for a in (sys.argv[3:5] if len(sys.argv) > 4 else (3000, 1400)))
 R_MAX = 0.085                                  # tube radius of the largest member [m]; span is 10 m
-OFFSET = {"before": 2.3, "after": 0.0}         # vertical placement of the two trusses [m]
 RANGE = data["ratio_range"]
 
 view = style.setup_view(width, height)
@@ -34,8 +33,8 @@ lut = style.lut("stress_ratio", "signed_dark", -RANGE, RANGE)
 scale = R_MAX / math.sqrt(max(max(d["areas"]) for d in data["designs"].values()))
 joints, supports = [], []      # merged into one display each
 
-for name, design in data["designs"].items():
-    dy = OFFSET[name]
+for name, design in [(which, data["designs"][which])]:
+    dy = 0.0
     pts, lines = vtkPoints(), vtkCellArray()
     radius, ratio = vtkDoubleArray(), vtkDoubleArray()
     radius.SetName("radius")
@@ -72,12 +71,12 @@ for name, design in data["designs"].items():
     for n in data["supports"]:
         x, y = data["nodes"][n]
         supports.append(Cone(Center=[x, y + dy - 0.30, 0], Direction=[0, 1, 0], Height=0.38, Radius=0.2, Resolution=64))
-style.solid(Show(AppendDatasets(Input=joints), view), style.LIGHT_GREY, roughness=0.3)
-style.solid(Show(AppendDatasets(Input=supports), view), style.GREY)
+style.metal(AppendDatasets(Input=joints), view, mapping="sphere", repeat=(2.0, 1.0))
+style.metal(AppendDatasets(Input=supports), view, mapping="cylinder", rgb=(0.62, 0.64, 0.67))
 lut.RescaleTransferFunction(-RANGE, RANGE)
 
-view.CameraPosition = [-0.2, 5.4, 15.0]
-view.CameraFocalPoint = [5.7, 1.45, 0.0]
+view.CameraPosition = [0.6, 3.6, 12.5]
+view.CameraFocalPoint = [5.0, 0.45, 0.0]
 view.CameraViewUp = [0, 1, 0]
 view.CameraViewAngle = 30
 style.save(view, out, width, height)

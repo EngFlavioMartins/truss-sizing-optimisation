@@ -2,7 +2,7 @@
 
 **Minimum-mass sizing of isostatic trusses as one linear programme.**
 
-![The 37-member benchmark truss at equal mass, with uniform member areas and after linear sizing, coloured by axial stress over admissible stress](docs/assets/render.webp)
+<p align="center"><img src="docs/assets/render.webp" width="560" alt="The 37-member benchmark truss at equal mass, with uniform member areas and after linear sizing, coloured by axial stress over admissible stress, with brushed-metal joints and supports"></p>
 
 In a statically determinate truss, member forces are linear in the member areas, so minimum-mass sizing under stress limits becomes a single linear programme. This is a Python re-implementation of the paper's method; the original 2018 MATLAB code is not available.
 
