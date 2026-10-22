@@ -2,6 +2,16 @@ cff-version: 1.2.0
 license: MIT
 message: "If you use this code, please cite the paper below."
 title: "Truss sizing optimisation"
+abstract: "Minimum-mass sizing of isostatic trusses under stress and self-weight as a single linear programme, in Python (Martins, Avila & da Silva, Int. J. Steel Struct. 2019)."
+keywords:
+  - "structural optimization"
+  - "sizing optimization"
+  - "truss"
+  - "isostatic structures"
+  - "self-weight"
+  - "linear programming"
+  - "finite element method"
+  - "Python"
 authors:
   - family-names: Martins
     given-names: Flavio A. C.
