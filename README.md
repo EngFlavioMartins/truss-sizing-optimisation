@@ -1,5 +1,12 @@
 # Truss sizing optimisation
 
+<p align="center">
+  <a href="https://doi.org/10.1007/s13296-018-0194-8"><img src="https://img.shields.io/badge/paper-10.1007%2Fs13296--018--0194--8-1F6FEB" alt="paper: 10.1007/s13296-018-0194-8"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="python: 3.10+"></a>
+  <a href="https://github.com/EngFlavioMartins/truss-sizing-optimisation/blob/HEAD/LICENSE"><img src="https://img.shields.io/badge/license-MIT-2E7D32" alt="license: MIT"></a>
+  <a href="https://engflaviomartins.github.io/#work-truss"><img src="https://img.shields.io/badge/website-research%20page-15212B" alt="website: research page"></a>
+</p>
+
 **Minimum-mass sizing of isostatic trusses as one linear programme.**
 
 <p align="center"><img src="docs/assets/render.webp" width="560" alt="The 37-member benchmark truss at equal mass, with uniform member areas and after linear sizing, coloured by axial stress over admissible stress, with brushed-metal joints and supports"></p>
