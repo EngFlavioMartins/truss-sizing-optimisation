@@ -1,0 +1,14 @@
+Truss sizing optimisation
+Copyright 2017–2026 Flavio A. C. Martins
+
+This product includes software developed by Flavio A. C. Martins
+(https://github.com/EngFlavioMartins/truss-sizing-optimisation).
+
+Under the Apache License 2.0 (section 4d), any redistribution of this software or of a
+derivative work must include this NOTICE file.
+
+If you use this software in academic work, please cite:
+
+    Martins, F. A. C., Avila, J. P. J. and da Silva, M. A. (2019). A linear approach for sizing optimization of isostatic trussed structures subjected to external and self-weight loads. International Journal of Steel Structures 19(4), 1146-1157. https://doi.org/10.1007/s13296-018-0194-8
+
+A BibTeX entry is given in README.md, and CITATION.cff provides the citation in other formats.
